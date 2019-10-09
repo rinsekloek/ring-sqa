@@ -6,9 +6,9 @@ module Ring
     class InvalidConfig < StandardError; end
     class NoConfig < StandardError; end
 
-    Config = Asetus.new name: 'sqa', load: false, usrdir: Directory, cfgfile: 'main.conf'
-    hosts  = Asetus.new name: 'sqa', load: false, usrdir: Directory, cfgfile: 'hosts.conf'
-
+    Config            = Asetus.new name: 'sqa', load: false, usrdir: Directory, cfgfile: 'main.conf'
+    hosts             = Asetus.new name: 'sqa', load: false, usrdir: Directory, cfgfile: 'hosts.conf'
+    
     Config.default.directory          = Directory
     Config.default.debug              = false
     Config.default.port               = 'ring'.to_i(36)/100
@@ -24,6 +24,10 @@ module Ring
 
     hosts.default.load                = %w( ring.nlnog.net )
     hosts.default.ignore              = %w( infra.ring.nlnog.net )
+
+    Config.default.graphite.server  = '83.247.2.88:2003'
+    Config.default.graphite.root    = 'nlnog.ring_sqa'
+
 
     begin
       Config.load
