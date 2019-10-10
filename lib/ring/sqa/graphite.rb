@@ -4,7 +4,6 @@ module Ring
 class SQA
 
   class Graphite
-    #ROOT = "nlnog.ring_sqa.#{CFG.afi}"
     ROOT = "#{CFG.graphite.root}.#{CFG.afi}"
 
     def add records
