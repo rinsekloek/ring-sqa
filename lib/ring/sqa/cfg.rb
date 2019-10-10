@@ -6,8 +6,8 @@ module Ring
     class InvalidConfig < StandardError; end
     class NoConfig < StandardError; end
 
-    Config            = Asetus.new name: 'sqa', load: false, usrdir: Directory, cfgfile: 'main.conf'
-    hosts             = Asetus.new name: 'sqa', load: false, usrdir: Directory, cfgfile: 'hosts.conf'
+    Config            = Asetus.new name: 'sqa', load: false, usrdir: File.join(Directory, "local"), cfgfile: 'main.conf'
+    hosts             = Asetus.new name: 'sqa', load: false, usrdir: File.join(Directory, "local"), cfgfile: 'hosts.conf'
     
     Config.default.directory          = Directory
     Config.default.debug              = false

@@ -2,7 +2,7 @@ module Ring
 class SQA
 
   class Alarm
-    Config = Asetus.new name: 'sqa', load: false, usrdir: Directory, cfgfile: 'alarm.conf'
+    Config = Asetus.new name: 'sqa', load: false, usrdir: File.join(Directory, "local"), cfgfile: 'alarm.conf'
     Config.default.email.to        = false
     Config.default.email.from      = "ring-sqa@" + CFG.host.name
     Config.default.email.prefix    = false
